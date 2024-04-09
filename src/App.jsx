@@ -1,8 +1,14 @@
+import { AuthContextProvider } from "./feature/context/authProvider";
+import { RenderContextProvider } from "./feature/context/renderProvider";
+import Router from "./route";
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-red-500">
-      Hello world!
-    </h1>
+    <AuthContextProvider>
+      <RenderContextProvider>
+        <Router />
+      </RenderContextProvider>
+    </AuthContextProvider>
   );
 }
 
