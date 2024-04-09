@@ -30,8 +30,13 @@ export function AuthContextProvider({ children }) {
     setAuthUser(respon.data.user);
   };
 
+  const logout = () => {
+    store.clearToken();
+    setAuthUser(null);
+  };
+
   return (
-    <AuthContext.Provider value={{ authUser, fetchMe, login, register }}>
+    <AuthContext.Provider value={{ authUser, fetchMe, login,logout, register }}>
       {children}
     </AuthContext.Provider>
   );
