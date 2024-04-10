@@ -11,8 +11,9 @@ export function AuthContextProvider({ children }) {
 
   const fetchMe = async () => {
     try {
-      const res = await authApi.fetchMe();
-      setAuthUser(res.data.user);
+      const response = await authApi.fetchMe();
+      setAuthUser(response.data.user);
+      store.storeToken(response.data.accessToken);
     } catch (err) {
       console.log(err.response?.data.message);
     }
@@ -30,8 +31,13 @@ export function AuthContextProvider({ children }) {
     setAuthUser(respon.data.user);
   };
 
+  const logout = () => {
+    store.clearToken();
+    setAuthUser(null);
+  };
+
   return (
-    <AuthContext.Provider value={{ authUser, fetchMe, login, register }}>
+    <AuthContext.Provider value={{ authUser, fetchMe, login,logout, register }}>
       {children}
     </AuthContext.Provider>
   );

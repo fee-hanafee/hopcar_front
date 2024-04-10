@@ -79,7 +79,7 @@ function Login() {
             <Button
               variant="outlined"
               type="button"
-              onClick={() => handleIsShow("register")}
+              onClick={() => handleIsShow({register:true})}
             >
               Sign up
             </Button>

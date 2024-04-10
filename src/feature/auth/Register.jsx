@@ -58,7 +58,7 @@ function Register() {
         <div className="flex justify-between">
           <h1 className="text-2xl">Sign Up</h1>
           <p
-            onClick={() => handleIsShow("login")}
+            onClick={() => handleIsShow({login:true})}
             className="translate-y-1 text-2xl text-red-500 hover:text-red-600"
             role="button"
           >

@@ -1,24 +1,23 @@
 import { createContext, useState, useContext } from "react";
-import useAuth from "./authProvider";
-import { useEffect } from "react";
 
 const RenderContext = createContext();
 
-const initial = {
-  login: true,
-  register: false,
-};
-
 export function RenderContextProvider({ children }) {
-  const [isShow, setIsShow] = useState(initial);
+  const [isShow, setIsShow] = useState({ login: true });
+  const [isAbout, setIsAbout] = useState({ car: true });
 
   const handleIsShow = (name) => {
-    if (name == "login") setIsShow({ register: false, login: true });
-    if (name == "register") setIsShow({ login: false, register: true });
+    setIsShow(name);
+  };
+
+  const handleIsAbout = (name) => {
+    setIsAbout(name);
   };
 
   return (
-    <RenderContext.Provider value={{ handleIsShow, isShow }}>
+    <RenderContext.Provider
+      value={{ handleIsShow, isShow, handleIsAbout, isAbout }}
+    >
       {children}
     </RenderContext.Provider>
   );
