@@ -8,14 +8,15 @@ function Container() {
   const { authUser } = useAuth();
 
   return (
-    <div className="flex flex-col justify-between min-h-[700px] ">
+    <div className="flex flex-col h-full justify-between border-r-2">
       {authUser && (
         <>
           <div className="font-mono p-4 flex flex-col gap-8">
             <NavOther />
             {authUser?.role == "Manager" && <NavManager />}
           </div>
-         <Logout />
+
+          <Logout />
         </>
       )}
     </div>

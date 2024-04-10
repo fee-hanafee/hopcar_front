@@ -14,7 +14,6 @@ export function RenderContextProvider({ children }) {
     setIsAbout(name);
   };
 
-  console.log(isAbout);
   return (
     <RenderContext.Provider
       value={{ handleIsShow, isShow, handleIsAbout, isAbout }}

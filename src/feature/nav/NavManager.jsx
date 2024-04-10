@@ -1,15 +1,37 @@
 import React from "react";
 import useRender from "../context/renderProvider";
+import useMange from "../context/manageProvider";
 
 function NavManager() {
   const { handleIsAbout } = useRender();
+  const { handleMange } = useMange();
   return (
     <div>
       <div>
-        <p onClick={() => handleIsAbout({ manage: true })}>Manage</p>
-        <p onClick={() => handleIsAbout({ create: true })}>Create</p>
-        <p onClick={() => handleIsAbout({ transaction: true })}>Transaction</p>
-        <p onClick={() => handleIsAbout({ user: true })}>User</p>
+        <p role="button" className="hover:text-red-600" onClick={handleMange}>
+          Manage
+        </p>
+        <p
+          role="button"
+          className="hover:text-red-600"
+          onClick={() => handleIsAbout({ create: true })}
+        >
+          Create
+        </p>
+        <p
+          role="button"
+          className="hover:text-red-600"
+          onClick={() => handleIsAbout({ transaction: true })}
+        >
+          Transaction
+        </p>
+        <p
+          role="button"
+          className="hover:text-red-600"
+          onClick={() => handleIsAbout({ user: true })}
+        >
+          User
+        </p>
       </div>
     </div>
   );

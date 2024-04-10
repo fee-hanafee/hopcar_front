@@ -4,17 +4,15 @@ import Profile from "../feature/user/Profile";
 import Cars from "../feature/user/Cars";
 import Create from "../feature/manager/Create";
 import User from "../feature/manager/User";
-import Manage from "../feature/manager/Manage";
 
 function About() {
   const { isAbout } = useRender();
   return (
-    <div>
+    <div className="h-full ">
       {isAbout?.profile && <Profile />}
       {isAbout?.car && <Cars />}
       {isAbout?.create && <Create />}
-      {isAbout?.user && <User />}   
-      {isAbout?.manage && <Manage />}
+      {isAbout?.user && <User />}
     </div>
   );
 }

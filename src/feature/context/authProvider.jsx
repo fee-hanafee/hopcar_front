@@ -11,8 +11,9 @@ export function AuthContextProvider({ children }) {
 
   const fetchMe = async () => {
     try {
-      const res = await authApi.fetchMe();
-      setAuthUser(res.data.user);
+      const response = await authApi.fetchMe();
+      setAuthUser(response.data.user);
+      store.storeToken(response.data.accessToken);
     } catch (err) {
       console.log(err.response?.data.message);
     }

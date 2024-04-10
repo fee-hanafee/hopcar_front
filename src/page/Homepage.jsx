@@ -10,12 +10,10 @@ import useMange from "../feature/context/manageProvider";
 
 function Homepage() {
   const { fetchMe } = useAuth();
-  const { fetchCars } = useMange();
 
   useEffect(() => {
     if (store.getToken()) {
       fetchMe();
-      fetchCars();
     }
   }, []);
 
